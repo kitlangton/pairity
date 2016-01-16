@@ -1,3 +1,11 @@
+#!/usr/bin/env ruby
+
 require 'pairity'
 
-Pairity::CLI.new.start
+
+begin
+  Pairity::CLI.new.start
+rescue Interrupt
+  puts
+  puts "Quitting Pairity..."
+end

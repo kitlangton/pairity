@@ -1,3 +1,5 @@
+require 'byebug'
+
 module Pairity
   class PairGenerator
 
@@ -13,18 +15,32 @@ module Pairity
       @matrix = matrix
       @last_pairs = []
       @pairs = []
+      @nopes = []
     end
 
     def generate_pairs
       @pairs = []
       @pairs = possible_pairs.min_by { |pairs| @matrix.weight_for_pairs(pairs) }
       @pairs.map! { |pair| pair.sort }.sort_by! { |pair| pair[0] }
+      move_solo_to_the_end
+      @pairs
     end
 
     def possible_pairs
-      unpaired = @matrix.people
-      unpaired.shuffle! if @@shuffle
-      unpaired.combination(2).to_a.combination(unpaired.size/2).to_a.reject { |pairs| (pairs.flatten.uniq.size) < unpaired.size }
+      @matrix.possible_pairs.reject { |pairing| pairing.any? { |pair| @nopes.include?(pair) }}
+    end
+
+    def move_solo_to_the_end
+      solo = @pairs.find { |pair| pair.any? { |person| person.name == "Han Solo" } }
+      return @pairs unless solo
+      index = @pairs.index(solo)
+      @pairs[index], @pairs[-1] = @pairs[-1], @pairs[index]
+      @pairs
+    end
+
+    def nope(p1,p2)
+      pair = [p1, p2].sort
+      @nopes << pair
     end
 
     def save_pairs
@@ -32,6 +48,7 @@ module Pairity
         @matrix.add_weight_to_pair(1, pair)
         @matrix.add_day_to_pair(pair)
       end
+      @nopes = []
       @last_pairs = @pairs
     end
 

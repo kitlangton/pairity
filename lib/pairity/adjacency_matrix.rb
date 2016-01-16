@@ -17,16 +17,28 @@ module Pairity
       output.join("\n")
     end
 
-    def people
-      if @people.size.odd?
+    def people(solo = false)
+      if @people.size.odd? || solo
         @people.reject { |person| person.name == "Han Solo" }
       else
         @people
       end
     end
 
+    def all_people
+      @people
+    end
+
+    def without_solo
+      @matrix.reject { |pair, edge| pair.include?(han_solo) }
+    end
+
     def [](*args)
       @matrix[args.sort]
+    end
+
+    def []=(*args, edge)
+      @matrix[args.sort] = edge
     end
 
     def weight_for_pairs(pairs)
@@ -47,6 +59,41 @@ module Pairity
       @people << new_person
     end
 
+    def average_weight
+      people.combination(2).to_a.inject(0) do |sum, pair|
+        sum += self[*pair].weight
+      end / people.combination(2).size
+    end
+
+    def average_days
+      people.combination(2).to_a.inject(0) do |sum, pair|
+        sum += self[*pair].days
+      end / people.combination(2).size
+    end
+
+    def get_pairs(pairs, first)
+      return [] if pairs.empty?
+      pairs.first(first).map do |pair|
+        [pair, get_pairs(pairs_without_pair(pairs, pair), 1000).flatten]
+      end
+    end
+
+    def pairs_without_pair(pairs, given_pair)
+      pairs.reject { |pair| given_pair.any? { |p| pair.include?(p)} }
+    end
+
+    def possible_pairs(array = [], pairs = [], peers = self.people.combination(2).to_a, count = self.people.size - 1)
+      return array << pairs + peers if peers.size <= 1
+      peers.first(count).each do |pair|
+        possible_pairs(array, (pairs + [pair.sort]), (pairs_without_pair(peers, pair)), count - 2)
+      end
+      array
+    end
+
+    def reasonable_combinations
+      people.combination(2).to_a.reject { |pair| weight_for_pair(pair) > average_weight}
+    end
+
     def remove_person(person)
       @matrix.reject! do |pair, weight|
         pair.include?(person)
@@ -55,7 +102,11 @@ module Pairity
     end
 
     def resistance(weight, pair)
-      @matrix[pair.sort].resistance * weight
+      tier_compensation = 0
+      if pair.all?{ |p| p.tier == 1} || pair.all?{ |p| p.tier == 3}
+        tier_compensation = 1.5
+      end
+      @matrix[pair.sort].resistance * weight + tier_compensation
     end
 
     def add_weight_to_pair(weight, pair)

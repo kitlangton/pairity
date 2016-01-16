@@ -34,4 +34,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug"
 
   spec.add_dependency "highline"
+  spec.add_dependency "rainbow"
+  spec.add_dependency "google_drive"
+  spec.add_dependency "terminal-table"
+  spec.add_dependency "ruby-progressbar"
+  spec.add_dependency "slack-poster"
 end

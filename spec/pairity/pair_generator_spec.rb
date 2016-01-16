@@ -28,11 +28,6 @@ describe Pairity::PairGenerator do
         expect(pg.pairs.size).to eq 2
       end
 
-      it 'generates the same pairings without saving' do
-        original_pairs = pg.generate_pairs
-        expect(pg.generate_pairs.sort).to eq original_pairs.sort
-      end
-
       it 'generates different pairings after saving' do
         original_pairs = pg.generate_pairs
         pg.save_pairs
@@ -42,14 +37,12 @@ describe Pairity::PairGenerator do
         end
       end
 
-      it 'repeats pairings after each pairing has been made' do
-        original_pairs = pg.generate_pairs
-        pg.save_pairs
-        2.times do
-          pg.generate_pairs
-          pg.save_pairs
+      it 'is generally fair' do
+        simulate_pairings(pg,300)
+        average = matrix.without_solo.inject(0) { |sum, data| sum += data[1].weight } / matrix.without_solo.size
+        matrix.without_solo.each do |pair, edge|
+          expect(edge.weight).to be_within(1).of(average)
         end
-        expect(pg.generate_pairs).to eq original_pairs
       end
 
       it 'everyone is paired twice after 6 days' do
@@ -97,11 +90,56 @@ describe Pairity::PairGenerator do
         end
       end
     end
+
+    context 'people at different tiers' do
+
+        before do
+          people.each do |person|
+            matrix.add_person(person)
+          end
+        end
+
+      it 'two tier threes are less likely to be paired' do
+        barack.tier = 3
+        kit.tier = 3
+        simulate_pairings(pg,100)
+        average = matrix.average_days
+        expect(matrix[kit, barack].days).to be < average
+      end
+
+      it 'two tier ones are less likely to be paired' do
+        xena.tier = 1
+        deepa.tier = 1
+        simulate_pairings(pg,100)
+        average = matrix.average_days
+        expect(matrix[xena, deepa].days).to be < average
+      end
+
+      it 'tier twos will be paired an average amount' do
+        barack.tier = 2
+        kit.tier = 2
+        simulate_pairings(pg,100)
+        average = matrix.average_days
+        expect(matrix[kit, barack].days).to be_within(1).of(average)
+      end
+    end
+  end
+
+  describe "#possible_pairs" do
+    before(:each) do
+      people.each do |person|
+        matrix.add_person(person)
+      end
+    end
+
+    it 'generates an array of all possible pairings' do
+      expect(pg.possible_pairs).to eq [[[barack, kit],[deepa, xena]], [[deepa, kit],[barack,xena]],[[kit,xena],[barack,deepa]]]
+    end
   end
 
   describe '#condemn_pairing' do
 
-    before do
+    before(:each) do
       people.each do |person|
         matrix.add_person(person)
       end
@@ -109,12 +147,8 @@ describe Pairity::PairGenerator do
 
     it 'removes the chance of two people being paired' do
       pg.abolish_pairing(barack, xena)
-
-      pairs = pg.generate_pairs # !> assigned but unused variable - pairs
-
-      simulate_pairings(pg, 300) do
-        expect(pg.include?(barack, xena)).to eq false
-      end
+      simulate_pairings(pg, 1000)
+      expect(matrix[barack,xena].days).to eq 0
     end
   end
 
@@ -142,6 +176,13 @@ describe Pairity::PairGenerator do
         simulate_pairings(pg, 12)
         expect(pg.days_for_pair(kit, barack)).to eq 3
       end
+
+      it 'will reduce their pairings over time' do
+        pg.resistance(kit, barack, 2)
+        simulate_pairings(pg,300)
+        average = matrix.average_days
+        expect(matrix[kit, barack].days).to be < average
+      end
     end
 
     context 'with less than 1' do
@@ -151,8 +192,14 @@ describe Pairity::PairGenerator do
         simulate_pairings(pg, 12)
         expect(pg.days_for_pair(kit, barack)).to eq 5
       end
-    end
 
+      it 'will increase their pairings over time' do
+        pg.resistance(kit, barack, 0.5)
+        simulate_pairings(pg,300)
+        average = matrix.average_days
+        expect(matrix[kit, barack].days).to be > average
+      end
+    end
   end
 
   describe '#equilibrium' do
