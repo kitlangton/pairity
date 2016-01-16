@@ -4,5 +4,68 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+<=>	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/person.rb	/^    def <=>(other_person)$/;"	f	class:Pairity.Person
+<=>	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def <=>(other_person)$/;"	f	class:Person
+AdjacencyMatrix	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^  class AdjacencyMatrix$/;"	c	class:Pairity
+AdjacencyMatrix	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^class AdjacencyMatrix$/;"	c
+CLI	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^  class CLI$/;"	c	class:Pairity
+Edge	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/edge.rb	/^  class Edge$/;"	c	class:Pairity
+Edge	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^class Edge$/;"	c
+PairGenerator	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^  class PairGenerator$/;"	c	class:Pairity
+PairGenerator	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^class PairGenerator$/;"	c
 Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/edge.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_saver.rb	/^module Pairity$/;"	m
+Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/person.rb	/^module Pairity$/;"	m
 Pairity	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/version.rb	/^module Pairity$/;"	m
+Person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/person.rb	/^  class Person$/;"	c	class:Pairity
+Person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^class Person$/;"	c
+[]	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def [](*args)$/;"	f	class:Pairity.AdjacencyMatrix
+abolish_pairing	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def abolish_pairing(person1, person2)$/;"	f	class:Pairity.PairGenerator
+add_day_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_day_to_pair(pair)$/;"	f	class:Pairity.AdjacencyMatrix
+add_day_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def add_day_to_pair(pair)$/;"	f	class:AdjacencyMatrix
+add_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_person(new_person)$/;"	f	class:Pairity.AdjacencyMatrix
+add_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def add_person(new_person)$/;"	f	class:AdjacencyMatrix
+add_weight_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_weight_to_pair(weight, pair)$/;"	f	class:Pairity.AdjacencyMatrix
+add_weight_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def add_weight_to_pair(weight, pair)$/;"	f	class:AdjacencyMatrix
+condemn	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def condemn(person1, person2)$/;"	f	class:PairGenerator
+days_for_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def days_for_pair(person1, person2)$/;"	f	class:Pairity.PairGenerator
+equilibrium	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def equilibrium$/;"	f	class:Pairity.PairGenerator
+generate_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def generate_pairs$/;"	f	class:Pairity.PairGenerator
+generate_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def generate_pairs$/;"	f	class:PairGenerator
+include?	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def include?(person1, person2)$/;"	f	class:Pairity.PairGenerator
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def initialize$/;"	f	class:Pairity.AdjacencyMatrix
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/edge.rb	/^    def initialize(weight: 0, days: 0, resistance: 1)$/;"	f	class:Pairity.Edge
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def initialize(matrix)$/;"	f	class:Pairity.PairGenerator
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/person.rb	/^    def initialize(name: name) # !> circular argument reference - name$/;"	f	class:Pairity.Person
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def initialize$/;"	f	class:AdjacencyMatrix
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def initialize(matrix)$/;"	f	class:PairGenerator
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def initialize(name: name) # !> circular argument reference - name$/;"	f	class:Person
+initialize	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def initialize(weight: 0, days: 0)$/;"	f	class:Edge
+inspect	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def inspect$/;"	f	class:AdjacencyMatrix
+inspect	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def inspect$/;"	f	class:Edge
+inspect	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def inspect$/;"	f	class:Person
+people	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def people$/;"	f	class:Pairity.AdjacencyMatrix
+people	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def people$/;"	f	class:AdjacencyMatrix
+possible_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def possible_pairs$/;"	f	class:Pairity.PairGenerator
+possible_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def possible_pairs$/;"	f	class:PairGenerator
+remove_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def remove_person(person)$/;"	f	class:Pairity.AdjacencyMatrix
+remove_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def remove_person(person)$/;"	f	class:AdjacencyMatrix
+resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def resistance(weight, pair)$/;"	f	class:Pairity.AdjacencyMatrix
+resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def resistance(person1, person2, resistance)$/;"	f	class:Pairity.PairGenerator
+revert	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def revert$/;"	f	class:Pairity.PairGenerator
+save_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def save_pairs$/;"	f	class:Pairity.PairGenerator
+save_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def save_pairs$/;"	f	class:PairGenerator
+shuffle	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def self.shuffle=(toggle)$/;"	F	class:Pairity.PairGenerator
+simulate_pairings	/Users/kitlangton/Viking/Bonus/pairity/spec/pairity/pair_generator_spec.rb	/^def simulate_pairings(generator, days)$/;"	f
+start	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def start$/;"	f	class:Pairity.CLI
+to_s	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def to_s$/;"	f	class:Pairity.AdjacencyMatrix
+to_s	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/edge.rb	/^    def to_s$/;"	f	class:Pairity.Edge
+to_s	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/person.rb	/^    def to_s$/;"	f	class:Pairity.Person
+weight_for_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def weight_for_pair(pair)$/;"	f	class:Pairity.AdjacencyMatrix
+weight_for_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def weight_for_pair(pair)$/;"	f	class:AdjacencyMatrix
+weight_for_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def weight_for_pairs(pairs)$/;"	f	class:Pairity.AdjacencyMatrix
+weight_for_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/spike.rb	/^  def weight_for_pairs(pairs)$/;"	f	class:AdjacencyMatrix
