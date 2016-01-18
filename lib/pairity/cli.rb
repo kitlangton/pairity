@@ -29,6 +29,7 @@ module Pairity
         menu.choice("Generate Pairs") { generate_pairs }
         menu.choice("Edit People") { edit_people }
         menu.choice("Edit Pair") { edit_pair }
+        menu.choice("Save Changes") { save_changes }
         menu.choice("Open Google Sheet") { open_google_sheet }
       end
 
@@ -61,6 +62,11 @@ module Pairity
         menu.choice("Rename") { rename }
         menu.choice("Change Tier") { change_tier }
       end
+    end
+
+    def save_changes
+      @sync.save
+      action_menu
     end
 
     def rename

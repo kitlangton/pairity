@@ -51,8 +51,8 @@ module Pairity
         ws.num_rows.times do |col|
           next if col == 0
           name1 = ws[1, col + 1]
-          name1 = name1.split(":")[0].strip
           @people << name1 if i == 0
+          name1 = name1.split(":")[0].strip
           (col+1...ws.num_rows).each do |row|
             name2 = ws[1, row + 1]
             name2 = name2.split(":")[0].strip

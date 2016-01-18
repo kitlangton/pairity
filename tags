@@ -100,6 +100,7 @@ resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	
 revert	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def revert$/;"	f	class:Pairity.PairGenerator
 save	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.save$/;"	F	class:Pairity.Config
 save	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/google_sync.rb	/^    def save$/;"	f	class:Pairity.GoogleSync
+save_changes	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def save_changes$/;"	f	class:Pairity
 save_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def save_pairs$/;"	f
 save_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def save_pairs$/;"	f	class:Pairity.PairGenerator
 shuffle	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def self.shuffle=(toggle)$/;"	F	class:Pairity.PairGenerator
