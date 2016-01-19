@@ -8,8 +8,8 @@ module Pairity
     end
 
     def <=>(other_person)
-      return -1 if name == "Han Solo"
-      return 1 if other_person.name == "Han Solo"
+      return 1 if name == "Han Solo"
+      return -1 if other_person.name == "Han Solo"
       name <=> other_person.name
     end
 

@@ -130,6 +130,15 @@ describe Pairity::PairGenerator do
       people.each do |person|
         matrix.add_person(person)
       end
+      # matrix.add_person(Pairity::Person.new(name: "Kyle"))
+      # matrix.add_person(Pairity::Person.new(name: "Clark"))
+      # matrix.add_person(Pairity::Person.new(name: "Bill"))
+      # matrix.add_person(Pairity::Person.new(name: "Chill"))
+      # matrix.add_person(Pairity::Person.new(name: "Mill"))
+      # matrix.add_person(Pairity::Person.new(name: "Kill"))
+      # matrix.add_person(Pairity::Person.new(name: "Zill"))
+      # matrix.add_person(Pairity::Person.new(name: "Bobby"))
+      # matrix.add_person(Pairity::Person.new(name: "Chobby"))
     end
 
     it 'generates an array of all possible pairings' do
