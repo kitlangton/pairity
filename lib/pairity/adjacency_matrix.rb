@@ -91,11 +91,11 @@ module Pairity
     end
 
     def branch_and_bound
-      remaining_people = people.dup
+      remaining_people = people.dup.shuffle
       answer = []
       until remaining_people.empty?
         scores = []
-        person = remaining_people[0]
+        person = remaining_people.sample
         remaining_people.each do |other|
           next if other == person
           pair = [other, person].sort
