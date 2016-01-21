@@ -37,8 +37,22 @@ describe Pairity::PairGenerator do
         end
       end
 
+      # it 'generates different pairings after saving' do
+      #   pg.abolish_pairing(barack, deepa)
+      #   deepa.tier = 3
+      #   kit.tier = 3
+      #   simulate_pairings(pg, 155)
+      #   pairs = pg.old_pairs
+      #   branch_pairs = pg.branch_pairs
+      #   puts "branch: #{matrix.weight_for_pairs(branch_pairs)}"
+      #   puts "normal: #{matrix.weight_for_pairs(pairs)}"
+      #   p matrix[xena, deepa].days
+      #   p matrix[kit, deepa].days
+      #   expect(pairs).to eq branch_pairs
+      # end
+
       it 'is generally fair' do
-        simulate_pairings(pg,300)
+        simulate_pairings(pg,600)
         average = matrix.without_solo.inject(0) { |sum, data| sum += data[1].weight } / matrix.without_solo.size
         matrix.without_solo.each do |pair, edge|
           expect(edge.weight).to be_within(1).of(average)
@@ -62,6 +76,17 @@ describe Pairity::PairGenerator do
       it 'does not have Han Solo' do
         pg.generate_pairs
         expect(pg.pairs.flatten.include?(han)).to eq false
+      end
+
+      it 'never pairs the same two people twice in a row' do
+        last_pairs = pg.generate_pairs
+        pg.save_pairs
+        simulate_pairings(pg, 800) do
+          last_pairs.each do |pair|
+            expect(pg.pairs).to_not include pair
+          end
+          last_pairs = pg.pairs
+        end
       end
     end
 

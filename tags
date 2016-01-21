@@ -32,15 +32,18 @@ Slackbot	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/slackbot.rb	/^  clas
 abolish_pairing	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def abolish_pairing(person1, person2)$/;"	f	class:Pairity.PairGenerator
 action_menu	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def action_menu$/;"	f	class:Pairity.CLI
 add	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.add(options={})$/;"	F	class:Pairity.Config
-add_day_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_day_to_pair(pair)$/;"	f	class:Pairity.AdjacencyMatrix
+add_day_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_day_to_pair(pair)$/;"	f	class:Pairity
 add_option	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.add_option(key, value)$/;"	F	class:Pairity.Config
 add_people	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def add_people$/;"	f
 add_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_person(new_person)$/;"	f	class:Pairity.AdjacencyMatrix
-add_weight_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_weight_to_pair(weight, pair)$/;"	f	class:Pairity.AdjacencyMatrix
+add_weight_to_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def add_weight_to_pair(weight, pair)$/;"	f	class:Pairity
 all_combos	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def all_combos$/;"	f
 all_people	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def all_people$/;"	f	class:Pairity.AdjacencyMatrix
 average_days	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def average_days$/;"	f	class:Pairity.AdjacencyMatrix
 average_weight	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def average_weight$/;"	f	class:Pairity.AdjacencyMatrix
+best_score	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def best_score(set, score)$/;"	f	class:Pairity
+branch_and_bound	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def branch_and_bound$/;"	f	class:Pairity.AdjacencyMatrix
+branch_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def branch_pairs$/;"	f	class:Pairity.PairGenerator
 change_tier	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def change_tier$/;"	f	class:Pairity
 choose_from_generated_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_from_generated_pair$/;"	f
 choose_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_pair$/;"	f
@@ -83,6 +86,7 @@ load_google	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def 
 move_solo_to_the_end	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def move_solo_to_the_end$/;"	f	class:Pairity.PairGenerator
 nope	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def nope(p1,p2)$/;"	f	class:Pairity.PairGenerator
 nope_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def nope_pair$/;"	f
+old_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def old_pairs$/;"	f	class:Pairity.PairGenerator
 open_google_sheet	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def open_google_sheet$/;"	f	class:Pairity.CLI
 pairs_menu	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def pairs_menu$/;"	f
 pairs_without_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def pairs_without_pair(pairs, given_pair)$/;"	f	class:Pairity.AdjacencyMatrix
@@ -91,11 +95,11 @@ possible_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matr
 possible_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def possible_pairs$/;"	f	class:Pairity.PairGenerator
 post	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/slackbot.rb	/^    def post(message)$/;"	f	class:Pairity.Slackbot
 post_to_slack	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_saver.rb	/^    def post_to_slack$/;"	f	class:Pairity.PairSaver
-reasonable_combinations	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def reasonable_combinations$/;"	f	class:Pairity.AdjacencyMatrix
+reasonable_combinations	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def reasonable_combinations$/;"	f	class:Pairity
 remove_people	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def remove_people$/;"	f	class:Pairity
-remove_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def remove_person(person)$/;"	f	class:Pairity.AdjacencyMatrix
+remove_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def remove_person(person)$/;"	f	class:Pairity
 rename	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def rename$/;"	f	class:Pairity
-resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def resistance(weight, pair)$/;"	f	class:Pairity.AdjacencyMatrix
+resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def resistance(weight, pair)$/;"	f	class:Pairity
 resistance	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def resistance(person1, person2, resistance)$/;"	f	class:Pairity.PairGenerator
 revert	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def revert$/;"	f	class:Pairity.PairGenerator
 save	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.save$/;"	F	class:Pairity.Config

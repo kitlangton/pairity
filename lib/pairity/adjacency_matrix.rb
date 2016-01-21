@@ -90,6 +90,42 @@ module Pairity
       array
     end
 
+    def branch_and_bound
+      remaining_people = people.dup
+      answer = []
+      until remaining_people.empty?
+        scores = []
+        person = remaining_people[0]
+        remaining_people.each do |other|
+          next if other == person
+          pair = [other, person].sort
+          set = remaining_people - pair
+          scores << {score: best_score(set, weight_for_pair(pair)), person: other}
+        end
+        # p scores.map { |score| "#{score[:score]} #{score[:person].name}" }
+        min = scores.min_by { |score| score[:score] }
+        pair = [min[:person], person].sort
+        remaining_people -= pair
+        answer << pair
+      end
+      answer
+    end
+
+    def best_score(set, score)
+      total = score
+      set.combination(2).to_a.inject(0) { |sum, pair| sum += weight_for_pair(pair) }
+      set[0..-2].each_with_index do |person, i|
+        scores = []
+        (i+1...set.size).each do |j|
+          other = set[j]
+          next if person == other
+          scores << self[person, other].weight
+        end
+        total += scores.min
+      end
+      total
+    end
+
     def reasonable_combinations
       people.combination(2).to_a.reject { |pair| weight_for_pair(pair) > average_weight}
     end
