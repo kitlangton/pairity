@@ -256,7 +256,7 @@ module Pairity
       puts
       choose do |menu|
         menu.prompt = "What would you like to do?"
-        menu.choice("Save Pairs") { save_pairs }
+        menu.choice("Save & Slack") { save_pairs }
         menu.choice("'Nope' a Pair") { nope_pair }
         menu.choice("Main Menu") { action_menu }
       end

@@ -50,6 +50,7 @@ module Pairity
       ws.num_rows.times do |row|
         next unless row > 0
         name = ws[row + 1, 1]
+        next if name.strip.empty?
         tier = ws[row + 1, 2]
         if name == "Han Solo"
           person = @matrix.han_solo
