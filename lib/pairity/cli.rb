@@ -29,11 +29,10 @@ module Pairity
         menu.choice("Generate Pairs") { generate_pairs }
         menu.choice("Edit People") { edit_people }
         # menu.choice("Edit Pair") { edit_pair }
-        # menu.choice("Simulate Days") { simulate_pairs }
         menu.choice("Save Changes") { save_changes }
         menu.choice("Open Google Sheet") { open_google_sheet }
+        menu.choice("Change Slack Channel") { change_channel }
       end
-
     end
 
     def open_google_sheet
@@ -49,10 +48,22 @@ module Pairity
         q.validate = /hooks\.slack\.com\/services\//
       end
 
-      channel = ask("What channel would you like to post to?")
+      channel = ask("What channel would you like to post to? (Don't write the #')")
 
       Config.add(url: slack_webhook, channel: channel)
       Config.save
+    end
+
+    def change_channel
+      puts "Let's set up Slack Integration."
+      Config.load
+
+      channel = ask("What channel would you like to post to? (Don't write the #')")
+
+      Config.add(channel: channel)
+      Config.save
+      puts "Channel changed to ##{channel}"
+      action_menu
     end
 
     def edit_people

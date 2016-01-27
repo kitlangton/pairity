@@ -44,6 +44,7 @@ average_weight	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matr
 best_score	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def best_score(set, score)$/;"	f	class:Pairity
 branch_and_bound	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/adjacency_matrix.rb	/^    def branch_and_bound$/;"	f	class:Pairity.AdjacencyMatrix
 branch_pairs	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/pair_generator.rb	/^    def branch_pairs$/;"	f	class:Pairity.PairGenerator
+change_channel	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def change_channel$/;"	f	class:Pairity
 change_tier	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def change_tier$/;"	f	class:Pairity
 choose_from_generated_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_from_generated_pair$/;"	f
 choose_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_pair$/;"	f
