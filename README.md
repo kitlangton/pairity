@@ -14,7 +14,7 @@
 ### Generating Pairs
 
 1. Select **Generate Pairs**
-2. **Nope** any pairs that you would like to manually override.
+2. (Optional) Select **Nope a Pair**, if a you would like to regenerate the pairs without the selected pairing.
 3. Select **Save & Slack** to save the pairings and post them to your slack channel.
 
 ### Adding People
