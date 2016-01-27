@@ -11,15 +11,22 @@
 
 ## Usage
 
-##### Adding People
+### Adding People
 
 1. Select **Edit People**.
-2. Select **Add People**.
+2. Select **Add**.
 3. Enter their names, separated by commas:
 
 `Booba Khan, Fumbo Dango, Papa Trepé, Jane Smith`
 
 4. Select **Save Changes**.
+
+### Deleting People
+
+1. Select **Edit People**.
+2. Select **Remove**.
+3. Choose the number of the person from the list.
+4. Select **Save Changes**
 
 ## Development
 
