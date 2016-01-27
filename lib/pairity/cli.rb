@@ -28,8 +28,8 @@ module Pairity
         menu.prompt = "What would you like to do?"
         menu.choice("Generate Pairs") { generate_pairs }
         menu.choice("Edit People") { edit_people }
-        menu.choice("Edit Pair") { edit_pair }
-        menu.choice("Simulate Days") { simulate_pairs }
+        # menu.choice("Edit Pair") { edit_pair }
+        # menu.choice("Simulate Days") { simulate_pairs }
         menu.choice("Save Changes") { save_changes }
         menu.choice("Open Google Sheet") { open_google_sheet }
       end
