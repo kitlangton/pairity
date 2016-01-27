@@ -48,6 +48,7 @@ change_tier	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def 
 choose_from_generated_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_from_generated_pair$/;"	f
 choose_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_pair$/;"	f
 choose_person	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def choose_person(tier: false)$/;"	f
+clear_worksheet	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/google_sync.rb	/^    def clear_worksheet(ws)$/;"	f	class:Pairity.GoogleSync
 condemn_pair	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/cli.rb	/^    def condemn_pair(pair)$/;"	f
 config	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.config$/;"	F	class:Pairity.Config
 configured	/Users/kitlangton/Viking/Bonus/pairity/lib/pairity/config.rb	/^    def self.configured?$/;"	F	class:Pairity.Config

@@ -1,4 +1,5 @@
 require "google/api_client"
+require 'pp'
 require "google_drive"
 require "ruby-progressbar"
 
@@ -13,7 +14,7 @@ module Pairity
 
     def initialize(matrix)
       @matrix = matrix
-      @people = []
+      @people = {}
       @sheet_url = nil
     end
 
@@ -30,63 +31,58 @@ module Pairity
 
       progressbar.progress += 20
       sheet = session.spreadsheet_by_title("Pairity")
-      @sheet_url = sheet.worksheets[0].human_url
       unless sheet
         puts "Creating a new spreadsheet called: Pairity"
         sheet = session.create_spreadsheet("Pairity")
         sheet.add_worksheet("Days")
         sheet.add_worksheet("Resistance")
+        sheet.add_worksheet("Weights")
         ws = sheet.worksheets[0]
-        ws.title = "Weights"
+        ws.title = "People"
         ws.save
       else
       end
+      @sheet_url = sheet.worksheets[0].human_url
 
-      (0..2).each do |i|
-        progressbar.progress += 20
+      ws = sheet.worksheets[0]
 
-        @edges = {}
+      # Add People and Tiers to Matrix
+      ws.num_rows.times do |row|
+        next unless row > 0
+        name = ws[row + 1, 1]
+        tier = ws[row + 1, 2]
+        if name == "Han Solo"
+          person = @matrix.han_solo
+        else
+          person = Person.new(name: name, tier: tier)
+          @matrix.add_person(person)
+        end
+        @people[person] = row + 1
+      end
+
+      # Add data to edges
+      (1..3).each do |i|
         ws = sheet.worksheets[i]
-
-        ws.num_rows.times do |col|
-          next if col == 0
-          name1 = ws[1, col + 1]
-          @people << name1 if i == 0
-          name1 = name1.split(":")[0].strip
-          (col+1...ws.num_rows).each do |row|
-            name2 = ws[1, row + 1]
-            name2 = name2.split(":")[0].strip
-            pair = [name1, name2].sort
-            data = ws[row + 1, col + 1]
-            next if data.strip == ""
-            @edges[pair] = data
+        @people.each do |p1, row|
+          @people.each do |p2, col|
+            next if p1 == p2
+            data = ws[row, col]
+            edit_edge(p1, p2, data, i)
           end
-        end
-
-        if i == 0
-          @people.map! do |person|
-            name, tier = person.split(":").map(&:strip)
-            if name == "Han Solo"
-              person = @matrix.han_solo
-            else
-              person = Person.new(name: name, tier: tier.to_i)
-              @matrix.add_person(person)
-            end
-            person
-          end
-        end
-
-        @edges.each do |pair, data|
-          p1, p2 = pair
-          p1 = find_person(p1)
-          p2 = find_person(p2)
-          edit_edge(p1, p2, data, i)
         end
       end
-      progressbar.progress += 20
-
 
       @matrix
+    end
+
+
+    def clear_worksheet(ws)
+      (1..ws.num_rows).each do |i|
+        (1..ws.num_rows).each do |j|
+          ws[i, j] = ""
+          ws[j, i] = ""
+        end
+      end
     end
 
     def save
@@ -98,27 +94,45 @@ module Pairity
       @people = @matrix.all_people.sort
 
       progressbar.progress += 20
-      (0..2).each do |i|
+
+      ws = sheet.worksheets[0]
+
+      clear_worksheet(ws)
+
+      ws[1, 1] = "Name"
+      ws[1, 2] = "Tier (1-3)"
+      @people.each_with_index do |person, index|
+        ws[index + 2, 1] = person.name
+        ws[index + 2, 2] = person.tier
+      end
+      ws.save
+
+      (1..3).each do |i|
         ws = sheet.worksheets[i]
 
+        clear_worksheet(ws)
+
         @people.each_with_index do |person, index|
-          ws[1, index + 2] = "#{person.name} : #{person.tier}"
-          ws[index + 2, 1] = "#{person.name} : #{person.tier}"
+          ws[1, index + 2] = person.name
+          ws[index + 2, 1] = person.name
         end
 
-      progressbar.progress += 20
+        progressbar.progress += 20
         @people.combination(2) do |pair|
           p1, p2 = pair
           index1 = @people.index(p1)
           index2 = @people.index(p2)
           edge = @matrix[p1,p2]
           case i
-          when 0
-            data = edge.weight
           when 1
+            ws[1,1] = "Days"
             data = edge.days
           when 2
+            ws[1,1] = "Resistances"
             data = edge.resistance
+          when 3
+            ws[1,1] = "Weights"
+            data = edge.weight
           end
           ws[index1 + 2, index2 + 2] = data
           ws[index2 + 2, index1 + 2] = data
@@ -132,13 +146,6 @@ module Pairity
           max = index + 3
         end
 
-        (max..ws.num_rows).each do |i|
-          (1..ws.num_rows).each do |j|
-            ws[i, j] = ""
-            ws[j, i] = ""
-          end
-        end
-
         ws.save
       end
       progressbar.progress += 20
@@ -147,12 +154,12 @@ module Pairity
 
     def edit_edge(p1, p2, data, i)
       case i
-      when 0
-        @matrix[p1, p2].weight = data.to_i
       when 1
         @matrix[p1, p2].days = data.to_i
       when 2
         @matrix[p1, p2].resistance = data.to_i
+      when 3
+        @matrix[p1, p2].weight = data.to_i
       end
     end
 
