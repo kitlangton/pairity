@@ -28,7 +28,7 @@
 
 5. Select **Save Changes**.
 
-### Deleting People
+### Removing People
 
 1. Run `pairity` in the terminal.
 1. Select **Edit People**.
