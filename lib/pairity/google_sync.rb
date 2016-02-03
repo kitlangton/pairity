@@ -93,6 +93,7 @@ module Pairity
       session = GoogleDrive.saved_session(CONFIG_FILE)
       sheet = session.spreadsheet_by_title("Pairity")
       @people = @matrix.all_people.sort
+      p @matrix.matrix
 
       progressbar.progress += 20
 
@@ -158,7 +159,7 @@ module Pairity
       when 1
         @matrix[p1, p2].days = data.to_i
       when 2
-        @matrix[p1, p2].resistance = data.to_i
+        @matrix[p1, p2].resistance = (data ? 1 : data.to_i)
       when 3
         @matrix[p1, p2].weight = data.to_i
       end
