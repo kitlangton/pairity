@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'pairity/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "pairity"
+  spec.name          = "viking-pairity"
   spec.version       = Pairity::VERSION
   spec.authors       = ["Kit Langton"]
   spec.email         = ["kitlangton@gmail.com"]
