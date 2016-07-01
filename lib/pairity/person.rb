@@ -1,6 +1,8 @@
 module Pairity
   class Person
-    attr_accessor :name, :tier
+    @@id = 0
+
+    attr_accessor :name, :tier, :id
 
     def initialize(name:, tier: 2)
       @name = name

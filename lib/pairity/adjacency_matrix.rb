@@ -1,3 +1,5 @@
+require 'graph_matching'
+
 module Pairity
   class AdjacencyMatrix
     attr_accessor :matrix, :han_solo
@@ -22,6 +24,20 @@ module Pairity
         @people.reject { |person| person.name == "Han Solo" }
       else
         @people
+      end
+    end
+
+    def matrix(solo = false)
+      if @people.size.odd? || solo
+        without_solo
+      else
+        @matrix
+      end
+    end
+
+    def set_ids(persons)
+      persons.each_with_index do |p, i|
+        p.id = i+1
       end
     end
 
@@ -78,56 +94,26 @@ module Pairity
       end
     end
 
-    def pairs_without_pair(pairs, given_pair)
-      pairs.reject { |pair| given_pair.any? { |p| pair.include?(p)} }
+    def find_person(id)
+      @people.find { |p| p.id == id }
     end
 
-    def possible_pairs(array = [], pairs = [], peers = self.people.combination(2).to_a, count = self.people.size - 1)
-      return array << pairs + peers if peers.size <= 1
-      peers.first(count).each do |pair|
-        possible_pairs(array, (pairs + [pair.sort]), (pairs_without_pair(peers, pair)), count - 2)
+    def optimal_pairs(nopes)
+      set_ids(people)
+      pairing_array = matrix.map do |pair, edge|
+        next if nopes.include?(pair.sort)
+        p1, p2 = pair
+        ids = [p1.id, p2.id].sort
+        [ids[0], ids[1], edge.weight * -1]
       end
-      array
-    end
 
-    def branch_and_bound
-      remaining_people = people.dup.shuffle
-      answer = []
-      until remaining_people.empty?
-        scores = []
-        person = remaining_people.sample
-        remaining_people.each do |other|
-          next if other == person
-          pair = [other, person].sort
-          set = remaining_people - pair
-          scores << {score: best_score(set, weight_for_pair(pair)), person: other}
-        end
-        # p scores.map { |score| "#{score[:score]} #{score[:person].name}" }
-        min = scores.min_by { |score| score[:score] }
-        pair = [min[:person], person].sort
-        remaining_people -= pair
-        answer << pair
+      pairing_array.compact!
+
+      g = GraphMatching::Graph::WeightedGraph[*pairing_array]
+      m = g.maximum_weighted_matching(true)
+      m.edges.map do |pair|
+        [find_person(pair[0]), find_person(pair[1])]
       end
-      answer
-    end
-
-    def best_score(set, score)
-      total = score
-      set.combination(2).to_a.inject(0) { |sum, pair| sum += weight_for_pair(pair) }
-      set[0..-2].each_with_index do |person, i|
-        scores = []
-        (i+1...set.size).each do |j|
-          other = set[j]
-          next if person == other
-          scores << self[person, other].weight
-        end
-        total += scores.min
-      end
-      total
-    end
-
-    def reasonable_combinations
-      people.combination(2).to_a.reject { |pair| weight_for_pair(pair) > average_weight}
     end
 
     def remove_person(person)

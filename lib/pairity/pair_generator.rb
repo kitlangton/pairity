@@ -1,4 +1,5 @@
 require 'byebug'
+require 'pry-byebug'
 
 module Pairity
   class PairGenerator
@@ -20,20 +21,9 @@ module Pairity
 
     def generate_pairs
       @pairs = []
-      @pairs = possible_pairs.min_by { |pairs| @matrix.weight_for_pairs(pairs) }
-      @pairs.map! { |pair| pair.sort }.sort_by! { |pair| pair[0] }
-      # @pairs = @matrix.branch_and_bound
+      @pairs = @matrix.optimal_pairs(@nopes)
       move_solo_to_the_end
       @pairs
-    end
-
-    def old_pairs
-      pairs = possible_pairs.min_by { |pairs| @matrix.weight_for_pairs(pairs) }
-      pairs.map! { |pair| pair.sort }.sort_by! { |pair| pair[0] }
-    end
-
-    def branch_pairs
-      @matrix.branch_and_bound
     end
 
     def possible_pairs

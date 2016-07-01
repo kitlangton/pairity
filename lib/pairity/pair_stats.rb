@@ -1,4 +1,3 @@
-
 module Pairity
   class PairRenderer
     def initialize(matrix)
