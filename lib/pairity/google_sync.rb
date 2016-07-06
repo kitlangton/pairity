@@ -92,7 +92,6 @@ module Pairity
       session = GoogleDrive.saved_session(CONFIG_FILE)
       sheet = session.spreadsheet_by_title("Pairity")
       @people = @matrix.all_people.sort
-      p @matrix.matrix
 
       progressbar.progress += 20
 

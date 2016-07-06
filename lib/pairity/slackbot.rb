@@ -1,4 +1,4 @@
-require 'slack_poster'
+require 'slack/poster'
 
 module Pairity
   class Slackbot

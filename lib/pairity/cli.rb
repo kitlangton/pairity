@@ -44,7 +44,7 @@ module Pairity
     def slack_config
       puts "Let's set up Slack Integration."
       Config.load
-      slack_webhook = ask("Please enter your Slack Webhook URL (more information: https://vikingcodeschool.slack.com/apps/new/A0F7XDUAZ-incoming-webhooks)") do |q|
+      slack_webhook = ask("Please enter your Slack Webhook URL (more information: https://vikingcodeschool.slack.com/apps/A0F7XDUAZ-incoming-webhooks)") do |q|
         q.validate = /hooks\.slack\.com\/services\//
       end
 
