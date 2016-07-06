@@ -37,7 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "highline"
   spec.add_runtime_dependency "rainbow"
   spec.add_runtime_dependency "google_drive"
-  spec.add_runtime_dependency "google-api-client"
   spec.add_runtime_dependency "terminal-table"
   spec.add_runtime_dependency "ruby-progressbar"
   spec.add_runtime_dependency "slack-poster"

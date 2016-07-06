@@ -1,4 +1,3 @@
-require "google/api_client"
 require 'pp'
 require "google_drive"
 require "ruby-progressbar"
