@@ -13,6 +13,7 @@ GoogleSync	lib/pairity/google_sync.rb	/^  class GoogleSync$/;"	c	class:Pairity
 PairGenerator	lib/pairity/pair_generator.rb	/^  class PairGenerator$/;"	c	class:Pairity
 PairRenderer	lib/pairity/pair_stats.rb	/^  class PairRenderer$/;"	c	class:Pairity
 PairSaver	lib/pairity/pair_saver.rb	/^  class PairSaver$/;"	c	class:Pairity
+Pairity	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/version.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity/adjacency_matrix.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity/cli.rb	/^module Pairity$/;"	m
