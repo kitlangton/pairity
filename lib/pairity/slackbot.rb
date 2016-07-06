@@ -11,11 +11,11 @@ module Pairity
         username: 'Pairity',
         channel: slack_channel
       }
-      # @poster = Slack::Poster.new(hook, options)
+      @poster = Slack::Poster.new(hook, options)
     end
 
     def post(message)
-      # @poster.send_message(message)
+      @poster.send_message(message)
     end
 
     def slack_channel
