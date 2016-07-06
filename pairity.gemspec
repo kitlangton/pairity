@@ -34,11 +34,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "pry-byebug"
 
-  spec.add_runtime_dependency "highline", "~> 1.7.8"
-  spec.add_runtime_dependency "rainbow", "~> 2.1"
-  spec.add_runtime_dependency "google_drive", "~> 2.0"
-  spec.add_runtime_dependency "terminal-table", "~> 1.6"
-  spec.add_runtime_dependency "ruby-progressbar", "~> 1.8.1"
-  spec.add_runtime_dependency "slack-poster", "~> 2.2"
-  spec.add_runtime_dependency "graph_matching", "~> 0.0.1"
+  spec.add_dependency "highline", "~> 1.7.8"
+  spec.add_dependency "rainbow", "~> 2.1"
+  spec.add_dependency "google_drive", "~> 2.0"
+  spec.add_dependency "terminal-table", "~> 1.6"
+  spec.add_dependency "ruby-progressbar", "~> 1.8.1"
+  spec.add_dependency "slack-poster"
+  spec.add_dependency "graph_matching", "~> 0.0.1"
 end
