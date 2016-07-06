@@ -39,6 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "google_drive", "~> 2.0"
   spec.add_dependency "terminal-table", "~> 1.6"
   spec.add_dependency "ruby-progressbar", "~> 1.8.1"
-  spec.add_dependency "slack-poster"
+  spec.add_dependency "slack-poster", "~> 2.2.0"
   spec.add_dependency "graph_matching", "~> 0.0.1"
 end
