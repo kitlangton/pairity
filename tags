@@ -9,14 +9,11 @@ AdjacencyMatrix	lib/pairity/adjacency_matrix.rb	/^  class AdjacencyMatrix$/;"	c	
 CLI	lib/pairity/cli.rb	/^  class CLI$/;"	c	class:Pairity
 Config	lib/pairity/config.rb	/^  class Config$/;"	c	class:Pairity
 Edge	lib/pairity/edge.rb	/^  class Edge$/;"	c	class:Pairity
-GoogleSync	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^  class GoogleSync$/;"	c	class:Pairity
 GoogleSync	lib/pairity/google_sync.rb	/^  class GoogleSync$/;"	c	class:Pairity
 PairGenerator	lib/pairity/pair_generator.rb	/^  class PairGenerator$/;"	c	class:Pairity
 PairRenderer	lib/pairity/pair_stats.rb	/^  class PairRenderer$/;"	c	class:Pairity
 PairSaver	lib/pairity/pair_saver.rb	/^  class PairSaver$/;"	c	class:Pairity
-Pairity	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^module Pairity$/;"	m
 Pairity	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/slackbot.rb	/^module Pairity$/;"	m
-Pairity	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/version.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity/adjacency_matrix.rb	/^module Pairity$/;"	m
 Pairity	lib/pairity/cli.rb	/^module Pairity$/;"	m
@@ -51,7 +48,6 @@ change_tier	lib/pairity/cli.rb	/^    def change_tier$/;"	f	class:Pairity
 choose_from_generated_pair	lib/pairity/cli.rb	/^    def choose_from_generated_pair$/;"	f
 choose_pair	lib/pairity/cli.rb	/^    def choose_pair$/;"	f
 choose_person	lib/pairity/cli.rb	/^    def choose_person(tier: false)$/;"	f
-clear_worksheet	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def clear_worksheet(ws)$/;"	f	class:Pairity.GoogleSync
 clear_worksheet	lib/pairity/google_sync.rb	/^    def clear_worksheet(ws)$/;"	f	class:Pairity.GoogleSync
 condemn_pair	lib/pairity/cli.rb	/^    def condemn_pair(pair)$/;"	f
 config	lib/pairity/config.rb	/^    def self.config$/;"	F	class:Pairity.Config
@@ -65,12 +61,10 @@ display_pair_names	lib/pairity/cli.rb	/^    def display_pair_names(pair)$/;"	f
 display_pair_stats	lib/pairity/cli.rb	/^    def display_pair_stats$/;"	f
 display_pairs	lib/pairity/cli.rb	/^    def display_pairs$/;"	f
 display_person	lib/pairity/cli.rb	/^    def display_person(person, tier: false)$/;"	f
-edit_edge	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def edit_edge(p1, p2, data, i)$/;"	f	class:Pairity.GoogleSync
 edit_edge	lib/pairity/google_sync.rb	/^    def edit_edge(p1, p2, data, i)$/;"	f	class:Pairity.GoogleSync
 edit_pair	lib/pairity/cli.rb	/^    def edit_pair$/;"	f
 edit_people	lib/pairity/cli.rb	/^    def edit_people$/;"	f	class:Pairity
 equilibrium	lib/pairity/pair_generator.rb	/^    def equilibrium$/;"	f	class:Pairity.PairGenerator
-find_person	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def find_person(name)$/;"	f	class:Pairity.GoogleSync
 find_person	lib/pairity/adjacency_matrix.rb	/^    def find_person(id)$/;"	f	class:Pairity.AdjacencyMatrix
 find_person	lib/pairity/google_sync.rb	/^    def find_person(name)$/;"	f	class:Pairity.GoogleSync
 generate_pairs	lib/pairity/cli.rb	/^    def generate_pairs$/;"	f
@@ -79,7 +73,6 @@ get	lib/pairity/config.rb	/^    def self.get(key)$/;"	F	class:Pairity.Config
 get_pairs	lib/pairity/adjacency_matrix.rb	/^    def get_pairs(pairs, first)$/;"	f	class:Pairity.AdjacencyMatrix
 include?	lib/pairity/pair_generator.rb	/^    def include?(person1, person2)$/;"	f	class:Pairity.PairGenerator
 increase_chance	lib/pairity/cli.rb	/^    def increase_chance(pair)$/;"	f
-initialize	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def initialize(matrix)$/;"	f	class:Pairity.GoogleSync
 initialize	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/slackbot.rb	/^    def initialize$/;"	f	class:Pairity.Slackbot
 initialize	lib/pairity/adjacency_matrix.rb	/^    def initialize$/;"	f	class:Pairity.AdjacencyMatrix
 initialize	lib/pairity/cli.rb	/^    def initialize$/;"	f	class:Pairity.CLI
@@ -90,7 +83,6 @@ initialize	lib/pairity/pair_saver.rb	/^    def initialize(pairs)$/;"	f	class:Pai
 initialize	lib/pairity/pair_stats.rb	/^    def initialize(matrix)$/;"	f	class:Pairity.PairRenderer
 initialize	lib/pairity/person.rb	/^    def initialize(name:, tier: 2)$/;"	f	class:Pairity.Person
 initialize	lib/pairity/slackbot.rb	/^    def initialize$/;"	f	class:Pairity.Slackbot
-load	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def load$/;"	f	class:Pairity.GoogleSync
 load	lib/pairity/config.rb	/^    def self.load$/;"	F	class:Pairity.Config
 load	lib/pairity/google_sync.rb	/^    def load$/;"	f	class:Pairity.GoogleSync
 load_google	lib/pairity/cli.rb	/^    def load_google$/;"	f
@@ -112,7 +104,6 @@ rename	lib/pairity/cli.rb	/^    def rename$/;"	f	class:Pairity
 resistance	lib/pairity/adjacency_matrix.rb	/^    def resistance(weight, pair)$/;"	f	class:Pairity.AdjacencyMatrix
 resistance	lib/pairity/pair_generator.rb	/^    def resistance(person1, person2, resistance)$/;"	f	class:Pairity.PairGenerator
 revert	lib/pairity/pair_generator.rb	/^    def revert$/;"	f	class:Pairity.PairGenerator
-save	/Users/kitlangton/Documents/Viking/pairity/lib/pairity/google_sync.rb	/^    def save$/;"	f	class:Pairity.GoogleSync
 save	lib/pairity/config.rb	/^    def self.save$/;"	F	class:Pairity.Config
 save	lib/pairity/google_sync.rb	/^    def save$/;"	f	class:Pairity.GoogleSync
 save_changes	lib/pairity/cli.rb	/^    def save_changes$/;"	f	class:Pairity
