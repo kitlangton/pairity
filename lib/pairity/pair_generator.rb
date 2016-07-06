@@ -1,6 +1,3 @@
-require 'byebug'
-require 'pry-byebug'
-
 module Pairity
   class PairGenerator
 
