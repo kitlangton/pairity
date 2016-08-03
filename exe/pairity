@@ -2,7 +2,6 @@
 
 require 'pairity'
 
-
 begin
   Pairity::CLI.new.start
 rescue Interrupt
