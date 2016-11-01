@@ -37,6 +37,7 @@ module Pairity
 
     def nope(p1,p2)
       pair = [p1, p2].sort
+      @matrix.add_weight_to_pair(1,pair)
       @nopes << pair
     end
 
