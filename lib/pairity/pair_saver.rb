@@ -6,7 +6,7 @@ module Pairity
 
     def post_to_slack
       rows = []
-      @pairs.each_with_index do |pair, index|
+      @pairs.shuffle.each_with_index do |pair, index|
         col = []
         col << "Room ##{index+1}"
         col << pair[0]
