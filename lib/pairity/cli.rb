@@ -276,7 +276,7 @@ module Pairity
     def save_pairs
       @generator.save_pairs
       puts
-      PairSaver.new(@generator.pairs).post_to_slack
+      PairPoster.new(@generator.pairs).post_to_slack
       say "Posted pairings to slack!"
       @sync.save
       action_menu
